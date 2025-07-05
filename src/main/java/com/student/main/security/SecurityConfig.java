@@ -115,7 +115,7 @@ public class SecurityConfig {
                     .orElseGet(() -> roleRepository.save(new Role(AppRole.ROLE_ADMIN)));
 
             if (!userRepository.existsByUsername("user")) {
-                User user = new User("user", "user@email.com", passwordEncoder.encode("password"));
+                User user = new User("user", "user@test.com", passwordEncoder.encode("password"));
                 user.setAccountNonLocked(false);
                 user.setAccountNonExpired(true);
                 user.setCredentialsNonExpired(true);
@@ -129,7 +129,7 @@ public class SecurityConfig {
             }
 
             if (!userRepository.existsByUsername("admin")) {
-                User admin = new User("admin", "admin@email.com", passwordEncoder.encode("admin123"));
+                User admin = new User("admin", "admin@test.com", passwordEncoder.encode("admin123"));
                 admin.setAccountNonLocked(true);
                 admin.setAccountNonExpired(true);
                 admin.setCredentialsNonExpired(true);
